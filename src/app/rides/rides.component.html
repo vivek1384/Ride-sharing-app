@@ -1,0 +1,48 @@
+<app-header/>
+<div class="main">
+    <div class="container">
+        @if(rideList.length == 0){
+        <div class="card">
+            <h3>You haven't created any Ride. <span routerLink="/" style="cursor: pointer; color: #007bff;">Create
+                    Here!</span></h3>
+        </div>
+        }
+        @for (item of rideList; track $index) {
+        <div class="card">
+            <h2>{{item.start}} - {{item.via1}} - {{item.via2}} - {{item.via3}} - {{item.end}}</h2>
+            <h3>Start Time : {{item.startTime}}</h3>
+            <h3>End Time : {{item.endTime}}</h3>
+            <h3>Seat : {{item.seat}} &nbsp; | &nbsp; Booked Seat : {{item.bookedSeat}} &nbsp; | &nbsp; Available Seat :
+                {{item.availabelSeat}}</h3>
+            @if(item.request.length > 0){
+            <h3 style="margin-top: 12px; color: #007bff; cursor: pointer;" (click)="onClick(item)">!! Click here to see
+                all
+                accepted request of this ride. !!</h3>
+            }@else {
+            <h3 style="margin-top: 12px; color: rgb(36, 172, 36); cursor: pointer;">!! No request accepted on this
+                ride. !!</h3>
+            }
+        </div>
+        }
+    </div>
+
+
+    @if(isOpen){
+    <div class="requestBox">
+        @for (item of requestList; track $index) {
+        <div class="box">
+            <h3>Request Name : {{item.reqName}}</h3>
+            <h3>Requier Seat : {{item.seat}}</h3>
+            <h3>Requested Ride Start : {{item.start}}</h3>
+            <h3>Requested Ride End : {{item.end}}</h3>
+            @if(!item.markedAsC){
+                <button (click)="requestDecline($index, item.reqId)">Decline Request</button>
+            }@else {
+                <button class="mobileButton">Marked As Complted By Requster.</button>
+            }
+        </div>
+        }
+        <button (click)="onClose()">Close</button>
+    </div>
+    }
+</div>

@@ -1,0 +1,79 @@
+{
+  "user": [
+    {
+      "id": "aed5",
+      "name": "Vivek Dudhatra",
+      "email": "vivek@gmail.com",
+      "password": "13082004"
+    },
+    {
+      "id": "95cb",
+      "name": "Akhil Hapani",
+      "email": "akhil@gmail.com",
+      "password": "2410"
+    },
+    {
+      "id": "1234",
+      "name": "Chirag Dudhatra",
+      "email": "chirag@gmail.com",
+      "password": "9909"
+    }
+  ],
+  "ride": [
+    {
+      "id": "6ce7",
+      "start": "Surat",
+      "end": "Junagadh",
+      "via1": "Bharuch",
+      "via2": "Vadodara",
+      "via3": "Rajkot",
+      "userName": "Vivek Dudhatra",
+      "userId": "aed5",
+      "startTime": "0",
+      "endTime": "12",
+      "seat": 1,
+      "bookedSeat": 0,
+      "availabelSeat": 1,
+      "request": []
+    }
+  ],
+  "request": [
+    {
+      "id": "4ebd",
+      "ride": {
+        "id": "6ce7",
+        "start": "Surat",
+        "end": "Junagadh",
+        "via1": "Bharuch",
+        "via2": "Vadodara",
+        "via3": "Rajkot",
+        "userName": "Vivek Dudhatra",
+        "userId": "aed5",
+        "startTime": "0",
+        "endTime": "12",
+        "seat": 1,
+        "bookedSeat": 0,
+        "availabelSeat": 1,
+        "request": [
+          {
+            "reqId": "5220",
+            "reqName": "Akhil Hapani",
+            "start": "Surat",
+            "end": "Vadodara",
+            "seat": 1,
+            "markedAsC": true
+          }
+        ]
+      },
+      "requestName": "Akhil Hapani",
+      "requestId": "95cb",
+      "start": "Surat",
+      "end": "rajkot",
+      "accepted": "Accepted",
+      "seat": 1,
+      "completed": true,
+      "chatCreate": false
+    }
+  ],
+  "chat": []
+}

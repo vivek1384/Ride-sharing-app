@@ -1,0 +1,70 @@
+<app-header />
+<div class="main">
+
+    <div class="container">
+        @if(reqList.length == 0){
+        <div class="card">
+            <h3>No History Found.</h3>
+        </div>
+        }
+        @else {
+        @for (item of reqList; track $index) {
+        <div class="card" [ngStyle]="{'text-decoration' : item.completed ? 'line-through' : 'none' }">
+            <h3>Request To : {{item.ride.userName}}</h3>
+            <h3>{{item.ride.start}}-{{item.ride.via1}}-{{item.ride.via2}}-{{item.ride.via3}}-{{item.ride.end}}</h3>
+            <h3>From : {{item.start}}</h3>
+            <h3>To : {{item.end}}</h3>
+            <h3>Seat : {{item.seat}}</h3>
+            @if(!item.completed){
+            @if(item.accepted ==''){
+            <div class="action">
+                <button (click)="unSend(item.id)">Unsend Request</button>
+            </div>
+            }@else if(item.accepted == "Accepted"){
+            <h3 style="color: rgb(36, 172, 36); margin-top: 10px;">!! Request Accepted !!</h3>
+            <div class="action">
+                <button (click)="markasCompleted(item.id, item)">Mark As Completed</button>
+                @if(item.chatCreate){
+                <button (click)="openChat(item.id)">Open Chat</button>
+                }@else {
+                <button (click)="crateChat(item)">Create chat</button>
+                }
+            </div>
+            }@else if(item.accepted == "Declined"){
+            <h3 style="color: red; margin-top: 10px;">!! Request Declined !!</h3>
+            <div class="action">
+                <button (click)="deleteReq(item.id)">Delete</button>
+            </div>
+            }
+            }
+        </div>
+        }
+        }
+    </div>
+
+    @if(isChatOpen){
+    <div class="chatBox" id="chatBox">
+        <h2><span>{{chat.riderName}} - {{chat.requsetName}}</span></h2>
+
+        @for (item of chat.messages; track $index) {
+        <div class="box"
+            [ngStyle]="{'background-color' : item.name == user.name ? 'linear-gradient(to bottom right, #4B0082, #00BFFF)' : 'linear-gradient(to bottom right, #3CB371, #FFA07A)'}">
+            <h3>
+                @if(item.name == user.name){
+                You :
+                }@else {
+                {{item.name}} :
+                }
+            </h3>
+            <h4>{{item.message}}</h4>
+        </div>
+        }
+
+        <div class="inputbox">
+            <input type="text" placeholder="Enter your message" [(ngModel)]="messageText" name="messageText">
+            <button (click)="sendMessage()">Send</button>
+        </div>
+    </div>
+    }
+
+</div>

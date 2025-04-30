@@ -1,0 +1,26 @@
+<div class="main">
+    @if(isLogin){
+    <div class="container">
+        <h1>Login / <span (click)="onClick()">Sign Up</span></h1>
+        <form action="">
+            <input type="text" placeholder="Enter Your Email" [(ngModel)]="user.email" name="email" autocomplete="off">
+            <input type="password" placeholder="Enter Your Passoword" [(ngModel)]="user.password" name="password"
+                autocomplete="off">
+            <button (click)="login()">Log In</button>
+        </form>
+    </div>
+    }
+    @else{
+    <div class="container">
+        <h1>Sign Up / <span (click)="onClick()">Login</span></h1>
+
+        <form action="">
+            <input type="text" placeholder="Enter Your Name" [(ngModel)]="user.name" name="name" autocomplete="off">
+            <input type="text" placeholder="Enter Your Email" [(ngModel)]="user.email" name="email" autocomplete="off">
+            <input type="password" placeholder="Enter Your Passoword" [(ngModel)]="user.password" name="password"
+                autocomplete="off">
+            <button (click)="SignUp()">Sign Up</button>
+        </form>
+    </div>
+    }
+</div>

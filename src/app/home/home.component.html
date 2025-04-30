@@ -1,0 +1,78 @@
+<app-header />
+<div class="container">
+    <div class="left">
+        <h1>Create New Ride</h1>
+        <form action="">
+            <input type="text" placeholder="Start Location" [(ngModel)]="ride.start" name="satrt">
+            <input type="text" placeholder="Via 1" [(ngModel)]="ride.via1" name="via1">
+            <input type="text" placeholder="Via 2" [(ngModel)]="ride.via2" name="via2">
+            <input type="text" placeholder="Via 2" [(ngModel)]="ride.via3" name="via3">
+            <input type="text" placeholder="End Location" [(ngModel)]="ride.end" name="end">
+            <div>
+                <label for="">Seat Available :</label>
+                <input type="number" placeholder="Seat Available" [(ngModel)]="ride.seat" name="seat">
+            </div>
+            <div>
+                <label for="">Date :</label>
+                <input type="date" placeholder="Start Time (Type in Understandable With Date)" [(ngModel)]="ride.date"
+                name="startTime">
+            </div>
+            <button (click)="addRide()">Add Ride</button>
+        </form>
+    </div>
+    <!-- <hr> -->
+    <div class="right">
+        <h1>Request New Ride</h1>
+        <form action="">
+            <input type="text" placeholder="Start Location" [(ngModel)]="startText" name="startText">
+            <input type="text" placeholder="End Location" [(ngModel)]="endText" name="endText">
+            <div>
+                <label for="">Require Seat : </label>
+                <input type="number" placeholder="End Location" [(ngModel)]="requireSeat" name="requireSeat">
+            </div>
+            <button (click)="searchButton()">Search Ride</button>
+        </form>
+
+        <div class="ridelist">
+            @for (item of searchList; track $index) {
+            <div class="card">
+                <div class="destination">
+                    <h3 style="font-weight: 900;"><span
+                            [ngStyle]="{'color': item.start.toLowerCase() == startText.toLowerCase() ? '#ff6b6b' : '#212529'}">{{item.start}}</span>
+                    </h3>
+                    <fa-icon [icon]="icon1"></fa-icon>
+                    <h3><span
+                            [ngStyle]="{'color': item.via1.toLowerCase() == startText.toLowerCase() ? '#ff6b6b' : item.via1.toLowerCase() == endText.toLowerCase() ? '#ff6b6b' : '#212529'}">{{item.via1}}</span>
+                    </h3>
+                    <fa-icon [icon]="icon1"></fa-icon>
+                    <h3><span
+                            [ngStyle]="{'color': item.via2.toLowerCase() == startText.toLowerCase() ? '#ff6b6b' : item.via2.toLowerCase() == endText.toLowerCase() ? '#ff6b6b' : '#212529'}">{{item.via2}}</span>
+                    </h3>
+                    <fa-icon [icon]="icon1"></fa-icon>
+                    <h3><span
+                            [ngStyle]="{'color': item.via3.toLowerCase() == startText.toLowerCase() ? '#ff6b6b' : item.via3.toLowerCase() == endText.toLowerCase() ? '#ff6b6b' : '#212529'}">{{item.via3}}</span>
+                    </h3>
+                    <fa-icon [icon]="icon1"></fa-icon>
+                    <h3><span
+                            [ngStyle]="{'color': item.end.toLowerCase() == endText.toLowerCase() ? '#ff6b6b' : '#212529'}">{{item.end}}</span>
+                    </h3>
+                </div>
+                <!-- <h2 style="display: flex; justify-content: center; align-items: center; font-size: 26px; gap: 6px;">
+                    {{item.start}}<fa-icon [icon]="icon1"></fa-icon>
+                    {{item.via1}}<fa-icon [icon]="icon1"></fa-icon> {{item.via2}} <fa-icon
+                        [icon]="icon1"></fa-icon>{{item.via3}} <fa-icon [icon]="icon1"></fa-icon>{{item.end}} </h2> -->
+                <h3>Driver Name : <span>{{item.userName}}</span></h3>
+                <h3>Seat Available : <span
+                        [ngStyle]="{'color': item.seat >= requireSeat ? 'green' : '#212529'}">{{item.availabelSeat}}</span>
+                </h3>
+                <h3>Start Time :
+                    <span>{{item.date}}</span>
+                </h3>
+                
+                <button (click)="onRideClick(item)">Request Ride</button>
+            </div>
+            }
+
+        </div>
+    </div>
+</div>

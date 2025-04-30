@@ -1,0 +1,186 @@
+.container {
+    height: calc(94vh - 2px);
+    background: #f8f9fa;
+    color: #212529;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(to bottom right, #4B0082, #00BFFF);
+}
+
+hr {
+    border: 1px solid #212529;
+}
+
+.left,
+.right {
+    width: 49%;
+    background: transparent;
+}
+
+.left h1,
+.right h1 {
+    text-align: center;
+    margin-top: 2rem;
+    color: #f8f9fa;
+    margin-bottom: 2rem;
+}
+
+.left form,
+.right form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.left form div,
+.right form div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.left form div label,
+.right form div label {
+    font-size: 20px;
+    width: 26%;
+    color: #f8f9fa;
+}
+
+.left form div input,
+.right form div input {
+    width: 74%;
+}
+
+.left input,
+.right input {
+    font-size: 18px;
+    padding: 8px;
+    padding-left: 15px;
+    background: transparent;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+}
+
+.left button,
+.right button {
+    font-size: 20px;
+    padding: 8px;
+    background: #fff;
+    border: none;
+    outline: none;
+    margin-top: 12px;
+    border-radius: 12px;
+    color: #212529;
+    cursor: pointer;
+}
+
+.ridelist {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 0rem;
+    /* background: #000;    */
+    height: calc(59vh - 42px);
+    overflow: scroll;
+    align-items: center;
+}
+
+.ridelist .card {
+    padding: 1rem;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+}
+
+.card h3 {
+    font-weight: 600;
+}
+
+.card h3 span {
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+.card button {
+    background: linear-gradient(to bottom right, #4B0082, #00BFFF);
+    color: #f8f9fa;
+    padding: 8px 18px;
+}
+
+.card div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-weight: 900;
+}
+
+@media screen and (width <=750px) {
+    .container {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .left form,
+    .right form {
+        width: 90%;
+    }
+
+    .left h1,
+    .right h1 {
+        font-size: 28px;
+    }
+
+    .left form input,
+    .right form input {
+        font-size: 15px;
+        padding: 4px;
+        padding-left: 12px;
+    }
+
+    .left form div label,
+    .right form div label {
+        font-size: 16px;
+        width: 40%;
+    }
+
+    .ridelist {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: calc(100vw - 2rem);
+        overflow-x: hidden;
+    }
+
+    .ridelist .card {
+        width: calc(100% - 2rem);
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .card div {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .card div fa-icon {
+        rotate: 90deg;
+    }
+}

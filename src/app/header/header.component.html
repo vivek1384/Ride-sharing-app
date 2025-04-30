@@ -1,0 +1,41 @@
+<div class="container">
+    <ul>
+        <li routerLink="/home">Home</li>
+        <li routerLink="/request">Request</li>
+        <li routerLink="/rides">Rides</li>
+        <li routerLink="/history">History</li>
+        @if(user){
+        <li>{{user.name}}</li>
+        <li (click)="logout()">Log Out</li>
+        }
+    </ul>
+</div>
+
+<hr>
+
+
+<div class="container-m">
+    <div class="top">
+        <h2>Ride Sharing App</h2>
+        @if(ismenu){
+            <span (click)="openMenu()"><fa-icon [icon]="icon2"></fa-icon></span>
+        }@else {
+            <span (click)="openMenu()"><fa-icon [icon]="icon"></fa-icon></span>
+        }
+    </div>
+
+    @if(ismenu){
+    <div class="down">
+        <ul>
+            <li routerLink="/home">Home</li>
+            <li routerLink="/request">Request</li>
+            <li routerLink="/rides">Rides</li>
+            <li routerLink="/history">History</li>
+            @if(user){
+            <li>{{user.name}}</li>
+            <li (click)="logout()">Log Out</li>
+            }
+        </ul>
+    </div>
+    }
+</div>

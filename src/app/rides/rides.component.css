@@ -1,0 +1,114 @@
+.main {
+    background: linear-gradient(to bottom right, #4B0082, #00BFFF);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    width: 50%;
+    margin: auto;
+    padding-top: 2rem;
+    height: calc(87vh + 4px);
+    overflow: scroll;
+}
+
+.container .card {
+    padding: 1rem;
+    gap: 3px;
+    display: flex;
+    flex-direction: column;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.card h3{
+    font-weight: 300;
+}
+
+.card .action {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.action button {
+    font-size: 18px;
+    padding: 5px 12px;
+    margin-top: 12px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.requestBox {
+    position: absolute;
+    top: 6vh;
+    width: 50vw;
+    backdrop-filter: blur(25px);
+    background: linear-gradient(to bottom right, #3CB371, #FFA07A);
+    left: calc(25vw - 2rem);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #f8f9fa;
+    height: calc(86vh - 2px);
+    overflow-y: scroll;
+}
+
+.requestBox .box {
+    border: 2px solid #4B0082;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 8px;
+}
+
+.requestBox .box button {
+    width: 35%;
+    font-size: 18px;
+    padding: 6px;
+    background: linear-gradient(to bottom right, #4B0082, #00BFFF);
+    margin: 0;
+    color: #f8f9fa;
+}
+
+.requestBox button {
+    width: 50%;
+    margin: auto;
+    font-size: 22px;
+    padding: 8px;
+    background: transparent;
+    cursor: pointer;
+    color: #f8f9fa;
+    border: none;
+    background: linear-gradient(to bottom right, #4B0082, #00BFFF);
+    border-radius: 8px;
+}
+
+.requestBox .mobileButton{
+    width: 100%;
+    cursor: not-allowed;
+}
+
+@media screen and (width <= 750px) {
+    .container{
+        width: 90%;
+        min-height: calc(89vh + 4px);
+    }
+    .requestBox{
+        width: 80vw;
+        left: calc(10vw - 2rem);
+    }   
+    .requestBox button{
+        width: 60%;
+    }
+    .requestBox .box button{
+        width: 100%;
+    }
+    .requestBox .box .mobileButton{
+        width: 100%;
+    }
+}
